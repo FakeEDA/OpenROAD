@@ -2,7 +2,6 @@
 #include<openroad/version.h>
 #include<fakedb/fakedb.h>
 #include<faketimer/faketimer.h>
-#include<fakeplacer/fakeplacer.h>
 
 using namespace std;
 
@@ -46,12 +45,4 @@ int main(int argc, char *argv[]) {
     RunSTA();
 
     cout << endl << endl;
-
-    // Placer
-    RunPlacer();
-
-    cout << endl << endl;
-
-    // STA
-    RunSTA();
 }

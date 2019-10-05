@@ -19,12 +19,10 @@ configure_file (
 # Add Required libraries
 add_subdirectory(module/FakeDB)
 add_subdirectory(module/FakeTimer)
-add_subdirectory(module/FakePlacer)
 
 # Find libraries
 find_package(FakeDB 1.0 REQUIRED)
 find_package(FakeTimer 1.0 REQUIRED)
-find_package(FakePlacer 1.0 REQUIRED)
 
 # Define target
 add_executable(openroad
@@ -47,5 +45,4 @@ target_link_libraries(openroad
     PRIVATE
         fakedb
         faketimer
-        fakeplacer
 )
