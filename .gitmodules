@@ -1,0 +1,9 @@
+[submodule "module/FakeDB"]
+	path = module/FakeDB
+	url = git@github.com:FakeEDA/FakeDB.git
+[submodule "module/FakeTimer"]
+	path = module/FakeTimer
+	url = git@github.com:FakeEDA/FakeTimer.git
+[submodule "module/FakePlacer"]
+	path = module/FakePlacer
+	url = git@github.com:FakeEDA/FakePlacer.git
