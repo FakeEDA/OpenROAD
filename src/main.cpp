@@ -1,8 +1,6 @@
 #include<iostream>
 #include<openroad/version.h>
 #include<fakedb/fakedb.h>
-#include<faketimer/faketimer.h>
-#include<fakeplacer/fakeplacer.h>
 
 using namespace std;
 
@@ -40,18 +38,4 @@ int main(int argc, char *argv[]) {
     int n;
     cin >> n;
     cout << "New netlist value: " << SetNetList(n) << endl;
-    cin >> n;
-
-    // STA
-    RunSTA();
-
-    cout << endl << endl;
-
-    // Placer
-    RunPlacer();
-
-    cout << endl << endl;
-
-    // STA
-    RunSTA();
 }
