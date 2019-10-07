@@ -22,13 +22,17 @@ add_subdirectory(module/FakeTimer)
 add_subdirectory(module/FakePlacer)
 
 # Find libraries
+find_package(SWIG REQUIRED)
+
 find_package(FakeDB 1.0 REQUIRED)
 find_package(FakeTimer 1.0 REQUIRED)
 find_package(FakePlacer 1.0 REQUIRED)
 
+
 # Define target
 add_executable(openroad
     src/main.cpp
+    src/openroad_wrap.cpp
 )
 
 target_compile_features(openroad PRIVATE cxx_auto_type)
@@ -48,4 +52,16 @@ target_link_libraries(openroad
         fakedb
         faketimer
         fakeplacer
+        tcl
+)
+
+# enable swig compile
+set (OPENROAD_SWIG_FILES
+    src/openroad.i
+)
+
+add_custom_command(OUTPUT ${PROJECT_SOURCE_DIR}/src/openroad_wrap.cpp
+  COMMAND ${SWIG_EXECUTABLE} -tcl8 -c++ -o ${PROJECT_SOURCE_DIR}/src/openroad_wrap.cpp ${PROJECT_SOURCE_DIR}/src/openroad.i   
+  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+  DEPENDS ${OPENROAD_SWIG_FILES}
 )
